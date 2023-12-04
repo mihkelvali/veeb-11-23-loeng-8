@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/veeb-11-23-loeng-8/static/css/main.f855e6bc.css",
+    "main.js": "/veeb-11-23-loeng-8/static/js/main.afff84ce.js",
+    "static/js/787.f68b2457.chunk.js": "/veeb-11-23-loeng-8/static/js/787.f68b2457.chunk.js",
+    "index.html": "/veeb-11-23-loeng-8/index.html",
+    "main.f855e6bc.css.map": "/veeb-11-23-loeng-8/static/css/main.f855e6bc.css.map",
+    "main.afff84ce.js.map": "/veeb-11-23-loeng-8/static/js/main.afff84ce.js.map",
+    "787.f68b2457.chunk.js.map": "/veeb-11-23-loeng-8/static/js/787.f68b2457.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.afff84ce.js"
+  ]
+}
