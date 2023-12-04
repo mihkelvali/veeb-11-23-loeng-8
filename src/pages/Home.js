@@ -1,19 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-const uudised = [
-    {
-        pealkiri: "Uudis 1",
-        sisu: "Sisu 1"
-    }
-]
+import StyledLink from "../components/StyledLink";
+import { getUudised } from "../data/uudised";
 
 const Home = () => {
     return (
         <div>
             <h1>Home</h1>
             <p>This is the home page</p>
-            <Link to="/contact" state={uudised[0]}>Uudis 1</Link>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {getUudised().map(uudis => (
+                    <StyledLink key={uudis.id} to={`/news/${uudis.id}`}>{uudis.pealkiri}</StyledLink>
+                ))}
+            </div>
         </div>
     );
 }

@@ -1,20 +1,20 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import StyledLink from "../components/StyledLink";
+
+const Nav = () => {
+    return (
+        <nav style={{ display: 'flex', gap: 24 }}>
+            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="/contact">Contact</StyledLink>
+        </nav>
+    )
+};
 
 const Layout = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact">Contact</Link>
-                        </li>
-                    </ul>
-                </nav>
-
+                <Nav />
                 <Outlet />
             </header>
         </div>

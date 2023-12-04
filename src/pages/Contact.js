@@ -1,13 +1,8 @@
-import { useLocation } from 'react-router-dom'
-
 const Contact = () => {
-    const location = useLocation();
-    const uudis = location.state
-
     return (
         <div>
-            <p>{uudis.pealkiri}</p>
-            <p>{uudis.sisu}</p>
+            <h1>Contact</h1>
+            <p>This is the contact page</p>
         </div>
     );
 }
