@@ -1,9 +1,18 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getUudis } from '../data/uudised';
+
+import { client } from '../App';
 
 const News = () => {
     const { newsId } = useParams();
-    const uudis = getUudis(newsId);
+    const [uudis, setUudis] = useState(null);
+
+    useEffect(() => {
+        client.getEntry("GAkHl63koucZtMBTN4zZY").then((response) => {
+            console.log(response);
+            setUudis(response.fields);
+        });
+    }, [])
 
     if (!uudis) {
         return <div>Unable to retrieve news with id { newsId }</div>;
@@ -11,7 +20,7 @@ const News = () => {
 
     return (
         <div>
-            <h1>{uudis.pealkiri}</h1>
+            <h1>{uudis.title}</h1>
             <p>{uudis.sisu}</p>
         </div>
     );
