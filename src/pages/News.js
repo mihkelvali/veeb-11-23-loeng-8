@@ -5,23 +5,31 @@ import { client } from '../App';
 
 const News = () => {
     const { newsId } = useParams();
-    const [uudis, setUudis] = useState(null);
+    const [uudis, setUudis] = useState(undefined);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        client.getEntry("GAkHl63koucZtMBTN4zZY").then((response) => {
+        setIsLoading(true);
+        client.getEntry(newsId).then((response) => {
             console.log(response);
             setUudis(response.fields);
+            setIsLoading(false);
         });
     }, [])
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     if (!uudis) {
         return <div>Unable to retrieve news with id { newsId }</div>;
     }
 
     return (
-        <div>
+        <div style={{ maxWidth: '80%' }}>
             <h1>{uudis.title}</h1>
-            <p>{uudis.sisu}</p>
+            <img src={uudis.image.fields.file.url} alt={uudis.image.fields.title} height="200" />
+            <p style={{ whiteSpace: 'pre-wrap' }}>{uudis.body}</p>
         </div>
     );
 };

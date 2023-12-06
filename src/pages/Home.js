@@ -5,13 +5,20 @@ import { client } from "../App"
 
 const Home = () => {
     const [uudised, setUudised] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         client.getEntries().then((response) => {
             console.log(response.items);
             setUudised(response.items);
+            setIsLoading(false);
         });
     }, [])
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
